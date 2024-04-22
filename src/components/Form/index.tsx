@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "../Button";
-import style from './style.module.scss';
+import style from './Form.module.scss';
 
 class Form extends React.Component {
     render() {
