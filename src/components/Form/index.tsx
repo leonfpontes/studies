@@ -2,6 +2,7 @@ import React from "react";
 import Button from "../Button";
 import style from './Form.module.scss';
 import { ITarefa } from "../../types/task";
+import {v4 as uuidv4} from 'uuid';
 
 class Form extends React.Component <{setTasks:  React.Dispatch<React.SetStateAction<ITarefa[]>>}> {
     state = {
@@ -11,7 +12,17 @@ class Form extends React.Component <{setTasks:  React.Dispatch<React.SetStateAct
 
     addTask(evento: React.FormEvent<HTMLFormElement>){
         evento.preventDefault();
-        this.props.setTasks((oldTask) => [...oldTask, {...this.state} ])
+        this.props.setTasks((oldTask) => 
+            [
+                ...oldTask, 
+                {
+                    ...this.state,
+                    selected: false,
+                    completed: false,
+                    id: uuidv4()
+                } 
+            ]
+        )
         this.setState({
             task: '',
             time: '00:00'
