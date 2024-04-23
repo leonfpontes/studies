@@ -7,10 +7,23 @@ import { ITarefa } from '../types/task';
 
 function App() {
   const [tasks, setTasks] = useState<ITarefa[] | []>([])
+  const [ selected, setSelected ] = useState<ITarefa>()
+  
+  function selectTask(selectedTask: ITarefa){
+    setSelected(selectedTask)
+    setTasks(oldTasks => oldTasks.map(task => ({
+      ...task,
+      selected: task.id === selectedTask.id ? true: false
+    })))
+  }
+
   return (
     <div className={style.AppStyle}>
       <Form setTasks={setTasks}/>
-      <List tasks={tasks} />
+      <List 
+        task={tasks} 
+        selectTask={selectTask}
+      />
       <Timer />
     </div>
   );
