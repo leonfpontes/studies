@@ -1,8 +1,9 @@
 import React from "react";
 import Button from "../Button";
 import style from './Form.module.scss';
+import { ITarefa } from "../../types/task";
 
-class Form extends React.Component {
+class Form extends React.Component <{setTasks:  React.Dispatch<React.SetStateAction<ITarefa[]>>}> {
     state = {
         task: '',
         time: '00:00'
@@ -10,7 +11,7 @@ class Form extends React.Component {
 
     addTask(evento: React.FormEvent<HTMLFormElement>){
         evento.preventDefault();
-        console.log("State: ", this.state)
+        this.props.setTasks((oldTask) => [...oldTask, {...this.state} ])
     }
 
     render() {
@@ -46,7 +47,7 @@ class Form extends React.Component {
                         required
                     />
                 </div>
-                <Button text="Adicionar"/>
+                <Button text="Adicionar" type="submit"/>
             </form>
         )
     }
