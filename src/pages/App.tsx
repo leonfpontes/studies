@@ -6,7 +6,7 @@ import Timer from '../components/Timer';
 import { ITarefa } from '../types/task';
 
 function App() {
-  const [tasks, setTasks] = useState<ITarefa[] | []>([])
+  const [ tasks, setTasks ] = useState<ITarefa[] | []>([])
   const [ selected, setSelected ] = useState<ITarefa>()
   
   function selectTask(selectedTask: ITarefa){
@@ -24,7 +24,7 @@ function App() {
         task={tasks} 
         selectTask={selectTask}
       />
-      <Timer />
+      <Timer selected={selected}/>
     </div>
   );
 }
