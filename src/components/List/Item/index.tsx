@@ -31,7 +31,7 @@ export default function Item(
             <span>
                 {time}
             </span>
-            {completed && <span className={style.concluido} area-Label="tarefa completada"></span>}
+            {completed && <span className={style.concluido} aria-label="tarefa completada"></span>}
         </li>
     )
 }

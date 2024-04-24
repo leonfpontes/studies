@@ -2,7 +2,7 @@ import React from "react";
 import style from './Button.module.scss';
 
 interface Props {
-    text: string, type?: "button" | "submit" | "reset" | undefined, 
+    text?: string, type?: "button" | "submit" | "reset" | undefined, 
     onClick?: () => void
     children?: React.ReactNode
 }

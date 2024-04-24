@@ -35,7 +35,7 @@ export default function Timer({ selected, taskComplete } : Props) {
             <div className={style.relogioWrapper}>
                 <Clock time={time}/>
             </div>
-            <Button onClick={() => countDown(time)} text="Começar!"/>
+            <Button onClick={() => countDown(time)}>Começar!</Button>
         </div>
     )
 }
