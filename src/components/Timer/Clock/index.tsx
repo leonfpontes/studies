@@ -11,7 +11,6 @@ export default function Clock({ time = 0 }: Props) {
     const [minDec, minUn] = String(minutes).padStart(2, '0')
     const [secDec, secUn] = String(seconds).padStart(2, '0')
 
-
     return(
         <>
             <span className={style.relogioNumero}>{minDec}</span>
