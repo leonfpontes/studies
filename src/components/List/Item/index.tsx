@@ -16,8 +16,8 @@ export default function Item(
         selectTask
     } : Props ) {
     return(
-        <li className={`${style.item} ${selected ? style.itemSelecionado: ''}`} 
-            onClick={() => selectTask(
+        <li className={`${style.item} ${selected ? style.itemSelecionado: ''} ${completed ? style.itemCompletado: ''}`} 
+            onClick={() => !completed && selectTask(
             {
                 task,
                 time,
@@ -31,6 +31,7 @@ export default function Item(
             <span>
                 {time}
             </span>
+            {completed && <span className={style.concluido} area-Label="tarefa completada"></span>}
         </li>
     )
 }
